@@ -15,4 +15,12 @@ public class hibernateUtil {
     } catch(Throwable erro){
     throw new ExceptionInInitializerError(erro);
 }
+    
+    public static SessionFactory getSessionFactory(){
+        return factory;
+    }
+
+    public static void shutdonw(){
+        factory.close();
+    }
 }
