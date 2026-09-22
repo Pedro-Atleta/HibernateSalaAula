@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class hibernateUtil {
-    private static final SessionFactory factory;
+    private static final SessionFactory factory = buildSessionFactory();
     
     private static SessionFactory buildSessionFactory(){
         return new Configuration().configure().buildSessionFactory();
