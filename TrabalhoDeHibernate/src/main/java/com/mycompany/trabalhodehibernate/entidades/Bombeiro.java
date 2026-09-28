@@ -4,14 +4,29 @@
  */
 package com.mycompany.trabalhodehibernate.entidades;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.time.LocalDate;
 
+
+@Entity
+@Table (name = "Bombeiro")
 public class Bombeiro {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name ="bom_cpf", length = 11, unique = true, nullable = false)
     private String cpf;
-    private LocalDateDate data_nascimento;
+    @Column(name ="bom_data_nascimento", nullable = false)
+    private LocalDate data_nascimento;
+    @Column(name ="bom_completo", nullable = false, length = 45)
     private String nome_completo;
+    @Column(name ="bom_nome_guerra", unique = true, nullable = false, length = 45)
     private String nome_guerra;
 
     public Bombeiro() {
@@ -33,11 +48,11 @@ public class Bombeiro {
         this.cpf = cpf;
     }
 
-    public LocalDateDate getData_nascimento() {
+    public LocalDate getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(LocalDateDate data_nascimento) {
+    public void setData_nascimento(LocalDate data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
@@ -60,13 +75,21 @@ public class Bombeiro {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiro) {
-            Bombeiro aux = (Bombeiro)obj;
-            
-            if (aux.getId().equals(this.id)) && (aux.getCpf().equals(this.cpf)) }{
-                
+            Bombeiro aux = (Bombeiro) obj;
+
+            if (aux.getId().equals(this.id) && (aux.getCpf().equals(this.cpf))) {
+                return true;
+            }else{
+                return false;
             }
         } else {
             return false;
         }
+    }
+
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
