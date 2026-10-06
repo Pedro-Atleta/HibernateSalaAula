@@ -8,19 +8,22 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class hibernateUtil {
+
     private static final SessionFactory factory = buildSessionFactory();
-    
-    private static SessionFactory buildSessionFactory(){
-        return new Configuration().configure().buildSessionFactory();
-    } catch(Throwable erro){
-    throw new ExceptionInInitializerError(erro);
-}
-    
-    public static SessionFactory getSessionFactory(){
+
+    private static SessionFactory buildSessionFactory() {
+        try {
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Throwable erro) {
+            throw new ExceptionInInitializerError(erro);
+        }
+    }
+
+    public static SessionFactory getSessionFactory() {
         return factory;
     }
 
-    public static void shutdonw(){
+    public static void shutdonw() {
         factory.close();
     }
 }
