@@ -20,14 +20,19 @@ public class Bombeiro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
     @Column(name ="bom_cpf", length = 11, unique = true, nullable = false)
     private String cpf;
+    
     @Column(name ="bom_data_nascimento", nullable = false)
     private LocalDate data_nascimento;
+    
     @Column(name ="bom_completo", nullable = false, length = 45)
     private String nome_completo;
+    
     @Column(name ="bom_nome_guerra", unique = true, nullable = false, length = 45)
     private String nome_guerra;
+    
 
     public Bombeiro() {
     }
