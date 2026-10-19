@@ -10,12 +10,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
 @Table (name = "Bombeiro")
-public class Bombeiro {
+public class Bombeiro { 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +37,15 @@ public class Bombeiro {
     @Column(name ="bom_nome_guerra", unique = true, nullable = false, length = 45)
     private String nome_guerra;
     
-
+    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
+    
+    @ManyToMany
+    @JoinColumn(name = "Bombeiro_has_Patente",
+            JoinColumn = @JoinColumn(name = "bom_id"),
+            inversejoinColumn = @JoinColumn(name = "pat_id"))
+    private Set<Patente> patente = new HashSet<Patente>();
+    
+    
     public Bombeiro() {
     }
 
@@ -76,7 +88,16 @@ public class Bombeiro {
     public void setNome_guerra(String nome_guerra) {
         this.nome_guerra = nome_guerra;
     }
+    
+    public Set<TelefoneContato> getTelefone() {
+        return telefone;
+    }
 
+    public void setTelefone(Set<TelefoneContato> telefone) {
+        this.telefone = telefone;
+    }
+
+    
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiro) {
