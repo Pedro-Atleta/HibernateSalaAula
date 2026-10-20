@@ -19,6 +19,35 @@ public class GerenciarBombeiro {
         Session sessao = hibernateUtil.getSessionFactory().openSession();
         
         System.out.println("Sessão estabelecida");
+        
+        Bombeiro bombeiro1 = new Bombeiro();
+        bombeiro1.setCpf("00000011");
+        bombeiro1.setData_nascimento(LocalDate.of(2000, 5, 16));
+        bombeiro1.setNome_completo("Ciclano Pinto");
+        bombeiro1.setNome_guerra("Pinto");
+        
+        Transaction transacao = null;
+        
+        try{
+            transacao = sessao.beginTransaction();
+            
+            sessao.persist(bombeiro1);
+            
+            transacao.commit();
+            System.out.println("Bombeiro 'salvo' ");
+            sessao.close();
+        }catch (Exception e){
+            if (transacao != null) {
+                transacao.rollback();
+            }
+        }
+        
+        hibernateUtil.shutdonw();
+        
+        /*
+        Session sessao = hibernateUtil.getSessionFactory().openSession();
+        
+        System.out.println("Sessão estabelecida");
         Transaction transacao = null;
             
         Bombeiro bombeiro = new Bombeiro();
@@ -42,5 +71,6 @@ public class GerenciarBombeiro {
         }
         
         hibernateUtil.shutdonw();
+*/
     }
 }
