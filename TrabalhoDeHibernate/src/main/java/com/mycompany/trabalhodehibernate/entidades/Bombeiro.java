@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -37,14 +38,15 @@ public class Bombeiro {
     @Column(name ="bom_nome_guerra", unique = true, nullable = false, length = 45)
     private String nome_guerra;
     
+    /*
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
     
     @ManyToMany
-    @JoinColumn(name = "Bombeiro_has_Patente",
-            JoinColumn = @JoinColumn(name = "bom_id"),
-            inversejoinColumn = @JoinColumn(name = "pat_id"))
+    @JoinTable(name = "Bombeiro_has_Patente", 
+            joinColumns = @JoinColumn(name = "bom_id"),
+            inverseJoinColumns = @JoinColumn(name = "pat_id"))
     private Set<Patente> patente = new HashSet<Patente>();
-    
+    */
     
     public Bombeiro() {
     }
@@ -89,6 +91,7 @@ public class Bombeiro {
         this.nome_guerra = nome_guerra;
     }
     
+    /*
     public Set<TelefoneContato> getTelefone() {
         return telefone;
     }
@@ -96,7 +99,7 @@ public class Bombeiro {
     public void setTelefone(Set<TelefoneContato> telefone) {
         this.telefone = telefone;
     }
-
+*/
     
     @Override
     public boolean equals(Object obj) {
