@@ -7,7 +7,7 @@
     <session-factory>
         <!-- Configurações do Banco de Dados (MySQL) -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Bombeiro</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
 
@@ -17,13 +17,17 @@
         <!-- Exibe o SQL gerado no console e o formata -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-
+        
+        
         <!-- Cria/Atualiza as tabelas automaticamente no banco -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         
-        <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.Bombeiro" />
+        <mapping class="com.mycompany.trabalhodehibernate.entidades.Bombeiro" />
+        <!--
         <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.Viatura" />
         <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.StatusViatura" />
+        <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.TelefoneContato" />
         <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.Usuario" />
+        -->
     </session-factory>
 </hibernate-configuration>
