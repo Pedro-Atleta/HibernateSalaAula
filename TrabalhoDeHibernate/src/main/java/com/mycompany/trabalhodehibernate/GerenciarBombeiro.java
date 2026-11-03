@@ -5,6 +5,8 @@
 package com.mycompany.trabalhodehibernate;
 
 import com.mycompany.trabalhodehibernate.entidades.Bombeiro;
+import com.mycompany.trabalhodehibernate.entidades.BombeiroHasPatente;
+import com.mycompany.trabalhodehibernate.entidades.Usuario;
 import com.mycompany.trabalhodehibernate.util.hibernateUtil;
 import java.time.LocalDate;
 import org.hibernate.Session;
@@ -26,12 +28,20 @@ public class GerenciarBombeiro {
         bombeiro1.setNome_completo("Ciclano Pinto");
         bombeiro1.setNome_guerra("Pinto");
         
+        Usuario usuario1 = new Usuario();
+        usuario1.setLogin("Ciclano.pinto");
+        usuario1.setSenha("12345");
+        
+        bombeiro1.setUsuario(usuario1);
+        usuario1.setBombeiro(bombeiro1);
+        
         Transaction transacao = null;
         
         try{
             transacao = sessao.beginTransaction();
             
             sessao.persist(bombeiro1);
+            sessao.persist(usuario1);
             
             transacao.commit();
             System.out.println("Bombeiro 'salvo' ");
