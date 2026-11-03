@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,8 +40,21 @@ public class Bombeiro {
     @Column(name ="bom_nome_guerra", unique = true, nullable = false, length = 45)
     private String nome_guerra;
     
+    @OneToOne
+    @JoinColumn(name = "usu_id", unique = true)
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
     /*
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
+    
     
     @ManyToMany
     @JoinTable(name = "Bombeiro_has_Patente", 
