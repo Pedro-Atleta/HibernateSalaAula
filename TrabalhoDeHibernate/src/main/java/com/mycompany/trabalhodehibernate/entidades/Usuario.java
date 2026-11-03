@@ -31,6 +31,15 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "bom_id", unique = true)
     private Bombeiro bombeiro;
+
+    public Bombeiro getBombeiro() {
+        return bombeiro;
+    }
+
+    public void setBombeiro(Bombeiro bombeiro) {
+        this.bombeiro = bombeiro;
+    }
+
     
     public Usuario(){
         
@@ -58,6 +67,8 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+        
+        
     }
     @Override
     public boolean equals(Object obj) {
