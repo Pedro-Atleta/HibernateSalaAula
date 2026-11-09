@@ -31,7 +31,7 @@
         <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.TelefoneContato" />
         <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.Especialidades" />
         -->
-        <mapping class=" ifc.ibirama.hibernatesalaaula.turmab.entidades.Usuario" />
+        <mapping class="com.mycompany.trabalhodehibernate.entidades.Usuario" />
         
     </session-factory>
 </hibernate-configuration>
