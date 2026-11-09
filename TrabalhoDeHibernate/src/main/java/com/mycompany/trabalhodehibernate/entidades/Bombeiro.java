@@ -4,6 +4,8 @@
  */
 package com.mycompany.trabalhodehibernate.entidades;
 
+import com.mycompany.trabalhodehibernate.entidades.Usuario;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
