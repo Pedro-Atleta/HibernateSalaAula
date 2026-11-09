@@ -32,6 +32,7 @@ public class GerenciarBombeiro {
         usuario1.setLogin("Ciclano.pinto");
         usuario1.setSenha("12345");
         
+        
         bombeiro1.setUsuario(usuario1);
         usuario1.setBombeiro(bombeiro1);
         
