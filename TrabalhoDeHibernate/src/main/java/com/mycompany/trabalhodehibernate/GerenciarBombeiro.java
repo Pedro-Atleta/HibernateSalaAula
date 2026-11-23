@@ -7,7 +7,7 @@ package com.mycompany.trabalhodehibernate;
 import com.mycompany.trabalhodehibernate.entidades.Bombeiro;
 import com.mycompany.trabalhodehibernate.entidades.BombeiroHasPatente;
 import com.mycompany.trabalhodehibernate.entidades.Usuario;
-import com.mycompany.trabalhodehibernate.util.hibernateUtil;
+import com.mycompany.trabalhodehibernate.util.HibernateUtil;
 import java.time.LocalDate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -18,7 +18,7 @@ import org.hibernate.Transaction;
  */
 public class GerenciarBombeiro {
     public static void main(String[] args) {
-        Session sessao = hibernateUtil.getSessionFactory().openSession();
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
         
         System.out.println("Sessão estabelecida");
         
@@ -53,7 +53,7 @@ public class GerenciarBombeiro {
             }
         }
         
-        hibernateUtil.shutdonw();
+        HibernateUtil.shutdonw();
         
         /*
         Session sessao = hibernateUtil.getSessionFactory().openSession();
